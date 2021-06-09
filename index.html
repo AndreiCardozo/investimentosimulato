@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Whatsapp Web</title>
+
+</head>
+
+<body>
+    <header class="d-flex bg p-1 ">
+
+        <div class=" d-inline-flex p-2 w-25   "><img src="./src/image/profile.png" alt="" width="55" height="55"
+                id="profile" id="fotoperfil">
+
+
+
+        </div>
+        <nav class="d-inline-flex p-4">
+            <div class=" d-flex p-1 bg d-md-none  ">
+                <div class="dropdown">
+                    <button class="btn btn-white  p-1" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"><img src=" ./src/image/circle-notch-solid.svg" alt=""
+                                width="15" height="15"></a>
+                        <a class="dropdown-item" href="#"><img src=" ./src/image/comment-alt-solid.svg" alt=""
+                                width="15" height="15"></a>
+                        <a class="dropdown-item" href="#"><img src=" ./src/image/ellipsis-v-solid.svg" alt="" width="15"
+                                height="15"></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="  col-1    d-none d-md-block "><img src=" ./src/image/circle-notch-solid.svg" alt="" width="15"
+                    height="15">
+            </div>
+            <div class="col-1   d-none d-md-block "><img src=" ./src/image/comment-alt-solid.svg" alt="" width="15"
+                    height="15">
+            </div>
+            <div class=" col-1   d-none d-md-block"><img src=" ./src/image/ellipsis-v-solid.svg" alt="" width="15"
+                    height="15">
+            </div>
+
+
+
+        </nav>
+
+        <div class="bg align-self-center p-1" id="uniacademia"> <img src="./src/image/uniacademia.png " alt=""
+                width="55" height="50">
+        </div>
+
+        <div class="bg align-self-center p-4" id="name1">
+            <b>UniAcademia - Front End</b>
+            <div class=" Visto">
+                <p>Visto por último: Segunda Feira ás 13:54</p>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <main class="d-flex bg p-1" id="">
+        <div class=" d-flex list-group bg p-1 w-25 " id="contatos">
+
+            <div class="input-group  ">
+                <span class="input-group-prepend">
+                    <div class="input-group-text bg-white border-1 border-left-0 form-rounded  "><i
+                            class="fa fa-search"></i>
+                    </div>
+                </span>
+                <input type="text" class="form-control  border-1 border-left-0 form-rounded"
+                    placeholder="Pesquise ou inicie uma conversa" value="">
+
+            </div>
+            <div class="chat 1 ">
+                <div class="chat-img"></div>
+                <div class="chat-text">
+                    <h6 class="nome">Fernando</h6>
+                    <span>Bom dia! Estou esperando sua resposta!</span>
+                </div>
+                <div class="d-flex when"><span>11:48</span>
+                    <p><span class="badge badge-success justify-content-end badge-pill">7</span></p>
+                </div>
+            </div>
+            <div class="chat 2">
+                <div class="chat-img"></div>
+                <div class="chat-text">
+                    <h6 class="nome">Dimas</h6>
+                    <span>Ein??? Me respondeeeee</span>
+                </div>
+                <div class="d-flex when">
+                    <span>09:13</span>
+                    <p><span class="badge badge-success justify-content-end badge-pill">1</span></p>
+                </div>
+            </div>
+            <div class="chat 3">
+                <div class="chat-img"></div>
+                <div class="chat-text">
+                    <h6 class="nome">Macedo</h6>
+                    <span>Dps tu me fala!!! Vê se não esquece!</span>
+                </div>
+                <div class="d-flex when">
+                    <span>08:84</span>
+                    <p><span class="badge badge-success justify-content-end badge-pill">2</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class=" d-flex flex-column w-75">
+            <div class="cointainer" id="direita">
+                <div class="myChat">
+                    <div class="message received">
+                        <br>
+                        <p><span>Salvee<small>14:30 </small></span></p>
+
+                    </div>
+                    <div class="message sent">
+                        <p><span>Eae<small>14:48 <i class="fas fa-check-double"></i></small></span></p>
+                    </div>
+                    <div class="message sent">
+                        <p><span>Vai dar quem no final da Champions?<small>14:48 <i
+                                        class="fas fa-check-double"></i></small></span></p>
+                    </div>
+                    <div class="message received">
+                        <p><span>Eu acho que vai dar Chelsea<small>14:49</small></span></p>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div>
+                <footer class="input-group d-flex justify-content-end  ">
+                    <span class="input-group-prepend ">
+                        <div class="input-group-text bg-gray border-2 border-left-0 form-rounded  "><i
+                                class="fas fa-smile"></i>
+                        </div>
+                    </span>
+                    <span class="input-group-prepend ">
+                        <div class="input-group-text bg-gray border-2 border-left-0 form-rounded  "><i
+                                class="fas fa-paperclip"></i>
+                        </div>
+                    </span>
+
+                    <input type="text" class="form-control  border- border-left-0 form-rounded"
+                        placeholder="Digite uma mensagem" value="">
+                    <span class="input-group-prepend ">
+                        <div class="input-group-text bg-gray border-2 border-left-0 form-rounded  "><i
+                                class="fas fa-microphone"></i>
+                        </div>
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
