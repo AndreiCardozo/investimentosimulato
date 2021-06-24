@@ -43,7 +43,6 @@
             <div class="d-flex justify-content-center">
 
                 <div>
-                    <br>
                     <img src="./src/Imagem 1.jpg" id="image1" width="1400" height="400">
                     <br>
                     <br>
@@ -68,17 +67,30 @@
                                 <td>Valor</td>
                                 <td>Quantidade</td>
                                 <td>Comprar</td>
+
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td id="nome0"></td>
+                                <td id="acao0"></td>
+                                <td>
+                                    <div id="valor0"></div>
+                                </td>
+                                <td> <input id="input0" type="text" placeholder="Qtd" min="0" name=""
+                                        style="width:130px">
+                                </td>
+                                <td><button class="btn btn-success" id="comprar0">Comprar</button></td>
+                            </tr>
                             <tr>
                                 <td id="nome1"></td>
                                 <td id="acao1"></td>
                                 <td>
                                     <div id="valor1"></div>
                                 </td>
-                                <td> <input type="number" placeholder="Qtd" name="" style="width:130px"></td>
-                                <td><button class="btn btn-success" id="comprar">Comprar</button></td>
+                                <td> <input id="input1" type="text" placeholder="Qtd" min="0" name=""
+                                        style="width:130px"></td>
+                                <td><button class="btn btn-success" id="comprar1">Comprar</button></td>
                             </tr>
                             <tr>
                                 <td id="nome2"></td>
@@ -86,8 +98,9 @@
                                 <td>
                                     <div id="valor2"></div>
                                 </td>
-                                <td> <input type="number" placeholder="Qtd" name="" style="width:130px"></td>
-                                <td><button class="btn btn-success" id="comprar">Comprar</button></td>
+                                <td> <input id="input2" type="text" placeholder="Qtd" min="0" name=""
+                                        style="width:130px"></td>
+                                <td><button class="btn btn-success" id="comprar2">Comprar</button></td>
                             </tr>
                             <tr>
                                 <td id="nome3"></td>
@@ -95,17 +108,9 @@
                                 <td>
                                     <div id="valor3"></div>
                                 </td>
-                                <td> <input type="number" placeholder="Qtd" name="" style="width:130px"></td>
-                                <td><button class="btn btn-success" id="comprar">Comprar</button></td>
-                            </tr>
-                            <tr>
-                                <td id="nome4"></td>
-                                <td id="acao4"></td>
-                                <td>
-                                    <div id="valor4"></div>
-                                </td>
-                                <td> <input type="number" placeholder="Qtd" name="" style="width:130px"></td>
-                                <td><button class="btn btn-success" id="comprar">Comprar</button></td>
+                                <td> <input id="input3" type="text" placeholder="Qtd" min="0" name=""
+                                        style="width:130px "></td>
+                                <td><button class="btn btn-success" id="comprar3">Comprar</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -139,15 +144,9 @@
                 </thead>
                 <tbody id="vendas">
                     <tr>
-                        <th class="rowId" scope="row">1</th>
-                        <td>Petrobrás</td>
-                        <td>PETR4</td>
-                        <td>
-                            <div>35</div>
-                        </td>
-                        <td>3</td>
-                        <td> 205,98</td>
-                        <td><button class="btn btn-danger" id="">Vender</button></td>
+                        <th class="rowId" scope="row"></th>
+
+
                     </tr>
                 </tbody>
             </table>
@@ -159,7 +158,13 @@
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
             <script>
-                let acao = [" ", "VALE3", "PETR4", "ALLD3", "RRRP3"]
+
+                var count = 0;
+
+
+
+
+                let acao = ["VALE3", "PETR4", "ALLD3", "RRRP3"]
 
                 for (let i = 0; i < acao.length; i++) {
                     $.ajax({
@@ -171,25 +176,26 @@
                             $(`#acao${i}`).html(data.codigo);
                             $(`#nome${i}`).html(data.nome);
                         },
-
                     })
-
                 }
-                let acao2 = ["VALE3", "PETR4", "ALLD3", "RRRP3", " "]
+
+                let acao2 = [" ", "VALE3", "PETR4", "ALLD3", "RRRP3"]
                 for (let i = 0; i < acao2.length; i++) {
 
-                    $("#comprar").click((event) => {
+                    $(`#comprar${i}`).click((event) => {
                         event.preventDefault();
                         let empresa = $(`#nome${i}`).text();
                         let acao = $(`#acao${i}`).text();
                         let valor = $(`#valor${i}`).text();
-                        let quantidade = $("#quantidade").find(":selected").text();
+                        let valor2 = parseInt(valor);
+                        let quantidade = $(`#input${i}`).text();
                         let total = $("#total").text();
                         let vender = $("#vender").text();
+                        let rowId = count
+                        console.log(valor2)
+                        count++;
 
-                        let rowId = parseInt($("tbody th:last").text()) + 1;
-
-
+                        console.log($(`#input${i}`))
                         let total1 = quantidade * $(`#valor${i}`);
 
                         let vendas = `
@@ -200,7 +206,13 @@
                             <td>R$${valor}</td>
                             <td>${quantidade}</td>
                             <td>R$${total1}</td> 
-                            <td><button class="btn btn-danger" id="">Vender</button></td>
+                            <td>
+                                <div class="row"> 
+                                   <input type="number" placeholder="Qtd" name="" style="width:50px" min="0" >
+                                   <button class="btn btn-danger" id="">Vender</button>
+                                </div>
+                            </td>
+                                   
                         </tr>
                     `;
 
@@ -209,6 +221,7 @@
 
                     })
                 };
+
 
             </script>
 </body>
