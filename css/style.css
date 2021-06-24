@@ -4,7 +4,9 @@ body{
 p{
     color:aliceblue;
 }
-
+input{
+  margin-left: 100px;
+}
 
 /* header{
   background-image: linear-gradient(rgb(100, 13, 13), rgb(0, 0, 0));
