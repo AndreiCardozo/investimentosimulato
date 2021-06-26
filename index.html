@@ -146,11 +146,7 @@
                     </tr>
                 </thead>
                 <tbody id="vendas">
-                    <tr>
-                        <th class="rowId" scope="row"></th>
 
-
-                    </tr>
                 </tbody>
                 <thead>
                     <tr>
@@ -171,7 +167,10 @@
             <script>
                 $('#carteira').text('3000')
 
-
+                function deleteRow(row) {
+                    var d = row.parentNode.parentNode.rowIndex;
+                    document.getElementById('vendas').deleteRow(d);
+                }
                 var count = 0;
 
                 let acao = ["VALE3", "PETR4", "ALLD3", "RRRP3"]
@@ -197,12 +196,10 @@
                         let empresa = $(`#nome${i}`).text();
                         let acao = $(`#acao${i}`).text();
                         let valor = $(`#valor${i}`).text();
-                        let valor2 = parseInt(valor);
                         let quantidade = $("#input").val();
                         let total = $("#total").text();
                         let vender = $("#vender").text();
                         let rowId = count
-                        console.log(valor2)
                         count++;
 
                         let total1 = quantidade * valor;
@@ -211,7 +208,8 @@
                         console.log(carteira)
 
                         let vendas = `
-                        <tr style="display: none;">
+                        <tr  id="criado">
+                            <div>
                             <th scope="row">${rowId}</th>
                             <td>${empresa}</td>
                             <td>${acao}</td>
@@ -221,19 +219,17 @@
                             <td>
                                 <div class="row"> 
                                   
-                                   <button class="btn btn-danger" id="">Vender</button>
+                                   <button class="btn btn-danger id ="deleteDep" value="Delete" onclick = "deleteRow(this)" id="btnvender">Vender</button>
                                 </div>
-                            </td>
-                                   
+                            </td>   
+                            </div>    
                         </tr>
                     `;
-
                         $("#vendas").append(vendas);
                         $("#vendas tr:last").show("slow");
 
                     })
-                };
-
+                }
 
 
 
