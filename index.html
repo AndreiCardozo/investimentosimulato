@@ -53,7 +53,7 @@
             </div>
             <p class="h2" id="compre">Compre Ações</p>
             <div class="d-flex justify-content-end">
-                <p class="h4"> Minha Carteira-
+                <p class="h4"> Minha Carteira:
                     <a id="carteira"></a>R$
             </div>
             <br>
@@ -177,6 +177,7 @@
 
                 for (let i = 0; i < acao.length; i++) {
                     $.ajax({
+                        type: 'GET',
                         url: `http://api-bolsa.sytes.net/bolsa/${acao[i]}`,
                         dataType: "json",
                         success: function (data) {
@@ -204,10 +205,16 @@
 
                         let total1 = quantidade * valor;
 
+                        if (input.innerHTML < 0) {
+                            console.log("a")
+                        }
 
-                        console.log(carteira)
+                        if (carteira.innerHTML < 0) {
+                            alert("Você deve fazer uma recarga correspondente ao valor devido")
 
-                        let vendas = `
+                        } else {
+                            carteirasub(total1)
+                            let vendas = `
                         <tr  id="criado">
                             <div>
                             <th scope="row">${rowId}</th>
@@ -217,22 +224,37 @@
                             <td>${quantidade}</td>
                             <td>R$${total1}</td> 
                             <td>
-                                <div class="row"> 
+                                <div class="row">
                                   
                                    <button class="btn btn-danger id ="deleteDep" value="Delete" onclick = "deleteRow(this)" id="btnvender">Vender</button>
                                 </div>
                             </td>   
                             </div>    
                         </tr>
-                    `;
-                        $("#vendas").append(vendas);
-                        $("#vendas tr:last").show("slow");
 
+                        
+                    `;
+                            $("#vendas").append(vendas);
+                            $("#vendas tr:last").show("slow");
+
+                        }
+
+
+
+
+                        // let total2 = valor1;
+                        // carteirasoma(total2)
                     })
                 }
 
+                function carteirasub(valor) {
+                    document.getElementById("carteira").innerHTML -= valor;
 
+                }
 
+                function carteirasoma(valor1) {
+                    document.getElementById("carteira").innerHTML += valor1;
+                }
             </script>
 </body>
 
