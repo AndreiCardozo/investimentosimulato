@@ -102,7 +102,7 @@
                                     <div id="valor3"></div>
                                 </td>
 
-                                <td><button class="btn btn-success" id="comprar3">Comprar</button></td>
+                                <td><button class="btn btn-success" id="comprar3" ">Comprar</button></td>
                             </tr>
                         </tbody>
                         <thead>
@@ -110,12 +110,12 @@
                                 <td></td>
                                 <td>Quantidade</td>
                                 <td>
-                                    <input type="number" placeholder="Qtd" min="1" name="" style="width:130px"
+                                    <input type=" number" placeholder="Qtd" min="1" name="" style="width:130px"
                                         id="input">
                                 </td>
 
                             </tr>
-                        </thead>
+                            </thead>
                     </table>
                 </div>
                 <br>
@@ -165,12 +165,8 @@
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
             <script>
-                $('#carteira').text('3000')
+                $('#carteira').text("3000")
 
-                function deleteRow(row) {
-                    var d = row.parentNode.parentNode.rowIndex;
-                    document.getElementById('vendas').deleteRow(d);
-                }
                 var count = 0;
 
                 let acao = ["VALE3", "PETR4", "ALLD3", "RRRP3"]
@@ -203,18 +199,18 @@
                         let rowId = count
                         count++;
 
+
                         let total1 = quantidade * valor;
+                        let input1 = total1 - carteira;
 
-                        if (input.innerHTML < 0) {
-                            console.log("a")
-                        }
-
-                        if (carteira.innerHTML < 0) {
-                            alert("Você deve fazer uma recarga correspondente ao valor devido")
-
+                        if (input1 < 1) {
+                            alert("Apenas valores positivos!")
                         } else {
-                            carteirasub(total1)
-                            let vendas = `
+                            if (carteira.innerHTML < 0) {
+                                alert("Você deve fazer uma recarga correspondente ao valor devido")
+                            } else {
+                                carteirasub(total1)
+                                let vendas = `
                         <tr  id="criado">
                             <div>
                             <th scope="row">${rowId}</th>
@@ -226,24 +222,16 @@
                             <td>
                                 <div class="row">
                                   
-                                   <button class="btn btn-danger id ="deleteDep" value="Delete" onclick = "deleteRow(this)" id="btnvender">Vender</button>
+                                   <button class="btn btn-danger id ="deleteDep" value="Delete" onclick = "deleteRow(this)" >Vender</button>
                                 </div>
                             </td>   
                             </div>    
                         </tr>
-
-                        
                     `;
-                            $("#vendas").append(vendas);
-                            $("#vendas tr:last").show("slow");
-
+                                $("#vendas").append(vendas);
+                                $("#vendas tr:last").show("slow");
+                            }
                         }
-
-
-
-
-                        // let total2 = valor1;
-                        // carteirasoma(total2)
                     })
                 }
 
@@ -252,9 +240,21 @@
 
                 }
 
-                function carteirasoma(valor1) {
-                    document.getElementById("carteira").innerHTML += valor1;
+                function deleteRow(row) {
+                    var d = row.parentNode.parentNode.rowIndex;
+                    document.getElementById('vendas').deleteRow(d);
                 }
+
+                function deleteC() {
+                    if (input1 - total1 == 0) {
+                        deleteRow(this)
+                    } else {
+                        total1 == input1 - total1
+                    }
+                }
+
+
+
             </script>
 </body>
 
