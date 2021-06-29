@@ -204,25 +204,25 @@
                         let input1 = total1 - carteira;
 
                         if (input1 < 1) {
-                            alert("Apenas valores positivos!")
+                            alert("Valor não reconhecido!")
                         } else {
-                            if (carteira.innerHTML < 0) {
-                                alert("Você deve fazer uma recarga correspondente ao valor devido")
+                            if (carteira.innerHTML < total1) {
+                                alert("Você não tem saldo suficiente para efetuar a compra!")
                             } else {
                                 carteirasub(total1)
                                 let vendas = `
-                        <tr  id="criado">
+                        <tr  id="criado${count}" >
                             <div>
                             <th scope="row">${rowId}</th>
                             <td>${empresa}</td>
                             <td>${acao}</td>
-                            <td>R$${valor}</td>
-                            <td>${quantidade}</td>
+                            <td>R$${valor}</td> 
+                            <td>${quantidade}</td> 
                             <td>R$${total1}</td> 
                             <td>
                                 <div class="row">
                                   
-                                   <button class="btn btn-danger id ="deleteDep" value="Delete" onclick = "deleteRow(this)" >Vender</button>
+                                   <button class="btn btn-danger id ="deleteID" value="Delete" onclick = "deleteRow(${count})   " >Vender</button>
                                 </div>
                             </td>   
                             </div>    
@@ -237,24 +237,25 @@
 
                 function carteirasub(valor) {
                     document.getElementById("carteira").innerHTML -= valor;
-
                 }
-
                 function deleteRow(row) {
-                    var d = row.parentNode.parentNode.rowIndex;
-                    document.getElementById('vendas').deleteRow(d);
+                    vender(row)
+                    $(` #criado${row} `).remove();
                 }
+                function vender(row) {
+                    let valorcomprado = (($(` #criado${row} `).get(0).children[3].innerHTML).substr(2, 5));
+                    let qtdcomprada = ($(` #criado${row} `).get(0).children[4].innerHTML);
 
-                function deleteC() {
-                    if (input1 - total1 == 0) {
-                        deleteRow(this)
-                    } else {
-                        total1 == input1 - total1
-                    }
+                    let carteirafin = valorcomprado * qtdcomprada
+
+
+
+                    console.log(valorcomprado)
+                    console.log(qtdcomprada)
+                    console.log(carteira)
+                    console.log(carteirafin)
                 }
-
-
-
+                document.getElementById("carteira").innerHTML += carteirafin;
             </script>
 </body>
 
